@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Form} from "./components/Form/Form";
-import {Header} from "./components/Header/Header";
+import {ContainerMovies} from "./components/ContainerMovie/containermovies-styles";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -27,19 +27,19 @@ function App() {
 
   return (
     <>
-      <Header />
       <Form onSearch={handleSearch} />
-      <div>
+      <ContainerMovies>
         <h2>Resultados</h2>
         <ul>
           {movies.map((movie) => (
             <li key={movie.imdbID}>
               <p>{movie.Title}</p>
               <img src={movie.Poster} alt={movie.Title} />
+              <p> {movie.Year}</p>
             </li>
           ))}
         </ul>
-      </div>
+      </ContainerMovies>
     </>
   );
 }
